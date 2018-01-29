@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<title>智付助手</title>
+</head>
+<style type="text/css">
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		font-family: "Microsoft YaHei";
+		background-color: #f6f6f6;
+	}
+
+	.content {
+		margin: 10px 10px 0;
+	}
+
+	.info {
+	 	max-width: 94%;
+	 	padding: 15px;
+	 	background: #fff;
+	}
+
+	.time, .number, .status {
+		height: 46px;
+		border-bottom: 1px solid #ccc;
+	}
+
+	.info span {
+		display: block;
+		width: 20%;
+		margin-top: 15px;
+		padding-left: 18px;
+		float: left;
+		font: 14px/20px "Microsoft YaHei";
+		color: #010101;
+		border-right: 1px solid #ccc;
+	}
+
+	@media only screen and (max-width: 350px) {
+		.info span {
+			width: 25%;
+		}
+	}
+
+	.info input, .info select{
+		border: 0;
+		margin-top: 15px;
+		margin-left: 18px;
+		font: 15px/20px "Microsoft YaHei";
+		width: 55%;
+
+		-moz-appearance:none;  
+		-webkit-appearance:none;
+		appearance:none;  
+	}
+
+	@media only screen and (max-width: 350px) {
+		.info input {
+			width: 50%;
+		}
+	}
+
+	.status i {
+		right: 20px;
+		left: auto;
+		font-size: 16px;
+	}
+
+	.btn {
+		margin-top: 20px;
+		text-align: center;
+	}
+
+	.btn-0 {
+		text-decoration: none;
+		padding: 3% 42%;
+		font: 16px/44px "Microsoft YaHei";
+        color: #fff;
+        background-color: #ff9806;
+        border-radius: 5px;
+    }
+
+    .footer {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		background-color: #fff;
+		border-top: 1px solid #ddd;
+	}
+
+	.item {
+		display: inline-block;
+		text-align: center;
+		width: 32.3%;
+		margin-top: 9px;
+		margin-bottom: 9px;
+		cursor: pointer;
+	}
+
+	.item .img {
+		width: 20px;
+		height: 20px;
+	}
+
+	.item span {
+		display: block;
+		font-size: 10px;
+		line-height: 10px;
+		margin-top: 5px;
+	}
+
+	.item .span-active {
+		color: #1caee2;
+	}
+
+	.table-content {
+		margin: 9px 10px;
+		border: 1px solid #fff;
+		padding-bottom: 50px;
+		background-color: #fff;
+	}
+
+	.table {
+		border: 1px solid #1caee2;
+	}
+
+	.table .title {
+		font: 14px/30px "Microsoft YaHei";
+		background-color: #1caee2;
+		color: #fff;
+	}
+
+	.table .title span {
+		margin-left: 10px;
+	}
+
+	.main-table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	.main-table td, .main-table th {
+		border: 1px solid #c5dae6;
+	}
+
+	.main-table th {
+		height: 30px;
+		font: 12px/30px "Microsoft YaHei";
+		color: #333;
+		background-color: #eef2f8;
+	}
+
+	.main-table th:nth-child(1){
+		width: 11.5%;
+	}
+
+	.main-table th:nth-child(2){
+		width: 30.1%;
+	}
+
+	.main-table th:nth-child(3){
+		width: 18%;
+	}
+
+	.main-table th:nth-child(4){
+		width: 19.7%;
+	}
+
+	.main-table td {
+		height: 75px;
+		font: 12px/30px "Microsoft YaHei";
+		text-align: center;
+	}
+
+	.main-table input {
+	}
+
+	.table-number {
+		float: right;
+		margin-right: 5px;
+		font: 11px/33px "Microsoft YaHei";
+		color: #000;
+	}
+
+	.table-bottom {
+		margin-top: 33px;
+		border-top: 1px dashed #e0e0e0;
+		font: 12px/40px "Microsoft YaHei";
+	}
+
+	.table-bottom input {
+		margin-left: 1%;
+	}
+
+	.btn-1 {
+		text-decoration: none;
+		margin-left: 22%;
+		padding: 7px 5px;
+        color: #fff;
+        background-color: #ff9806;
+        border-radius: 5px;
+    }
+
+    @media only screen and (min-width: 768px) {
+		.btn-1 {
+			margin-left:59%;
+		}
+	}
+
+    @media only screen and (max-width: 400px) {
+		.btn-1 {
+			margin-left: 14%;
+		}
+	}
+
+    @media only screen and (max-width: 350px) {
+		.btn-1 {
+			margin-left: 0;
+		}
+	}
+
+    .btn-2 {
+		text-decoration: none;
+		padding: 7px 10px;
+        color: #fff;
+        background-color: #ff9806;
+        border-radius: 5px;
+    }
+
+    .btn-3 {
+		text-decoration: none;
+		padding: 7px 16px;
+        color: #fff;
+        background-color: #ff9806;
+        border-radius: 5px;
+    }
+
+    .hack {
+    	height: 9px;
+    }
+</style>
+<body>
+	<div class="content">
+		<div class="info">
+			<div class="time">
+				<span>日期</span>
+				<input value="123">
+			</div>
+			<div class="status">
+				<span>状态</span>
+				<!-- <input value="123"> -->
+				<select class="select">
+                    <option value="1">中国</option>
+                    <option value="2">美国</option>
+                    <option value="3">英国</option>
+                </select>
+				<i class="fa fa-chevron-down"></i>
+			</div>
+			<div class="number">
+				<span>单号</span>
+				<input value="123">
+			</div>
+			<div class="btn">
+				<a class="btn-0" href="#">查&nbsp;询</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="hack"></div>
+
+	<div class="table-content">
+		<div class="table">
+			<div class="title">
+				<span>订单记录</span>
+			</div>
+			<table class="main-table">
+				<thead>
+					<tr>
+						<th>序号</th>
+						<th>缴费项目</th>
+						<th>份数</th>
+						<th>金额</th>
+						<th>状态</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<input type="checkbox" />
+							<span>1</span>
+						</td>
+						<td>看电影</td>
+						<td>2份</td>
+						<td>800.00元</td>
+						<td>未领取</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" />
+							<span>2</span>
+						</td>
+						<td>看电影</td>
+						<td>1份</td>
+						<td>400.00元</td>
+						<td>未领取</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="table-number">
+				<span>订单号：123456789</span>
+			</div>
+			<div class="table-bottom">
+				<input type="checkbox" />
+				<span>全选</span>
+				<a class="btn-1" href="#">生成缴费凭证</a>
+				<a class="btn-2" href="#">生成二维码</a>
+				<a class="btn-3" href="#">申请退款</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+        <span class="item">
+            <img class="img" src="img/home1.png">
+            <span class="">商城</span>
+        </span>
+        <span class="item">
+            <img class="img" src="img/search1.png">
+            <span class="span-active">智付助手</span>
+        </span>
+        <span class="item">
+            <img class="img" src="img/cart.png">
+            <span class="">购物车</span>
+        </span>
+    </div>
+</body>
+</html>
